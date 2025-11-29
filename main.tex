@@ -1,0 +1,194 @@
+% !TeX program = xelatex
+
+%___________________________________________________________________
+% Load Class
+% beamer will auto load: hyperref, color, xcolor, amsthm
+
+\documentclass[
+  fontsize=10pt, 
+  aspectratio=169,
+  xcolor={dvipsnames}
+]{beamer}
+
+%___________________________________________________________________
+% Load Packages
+% inputenc is redundant for modern LaTeX versions.
+% fontenc should only be used if the font supports T1 encoding.
+
+\usepackage{fontspec}               % required for system fonts
+\usepackage{microtype}              % better typography
+\usepackage{polyglossia}            % languages
+
+% \usepackage{enumitem}
+
+\usepackage{animate}
+
+% citations
+\usepackage[
+  backend=biber,              
+  style=ieee,                 
+]{biblatex}   
+\usepackage[
+  autostyle=true, 
+  german=quotes
+]{csquotes}
+
+% better unit display
+\usepackage[
+  locale=DE,
+  mode=match,
+  % per-mode-fraction,
+  range-units=repeat,
+  range-phrase={{~bis~}}
+]{siunitx}
+
+\usepackage{amsmath}
+
+% input external data
+\usepackage{listings}
+\usepackage{graphicx} 
+\usepackage{svg}
+
+% improve visualization of data
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{subcaption}	
+
+\usepackage{appendixnumberbeamer}
+
+\usetheme[]{metropolis}     % beamer style
+
+%___________________________________________________________________
+% Dimensions
+
+\newlength{\imagewidth}
+\setlength{\imagewidth}{1\columnwidth}
+
+\newlength{\imageheight}
+\setlength{\imageheight}{0.85\textheight}
+
+%___________________________________________________________________
+% Colors
+
+\definecolor{colorblue}{HTML}{0480CC}				% color for weblinks
+\definecolor{colordarkblue}{HTML}{4C1DCC}			% no use case at the moment
+\definecolor{colorgreen}{HTML}{26CC1B}				% color for citations
+\definecolor{colorred}{HTML}{CC1204}				% color for pdf links
+\definecolor{coloryellow}{HTML}{F0B707}			    % color for warnings
+
+%___________________________________________________________________
+% New Makros
+
+\newcommand{\imagesource}[1]{\par\footnotesize\textbf{Quelle:}~#1}   	%   Quellen für Bilder
+\newcommand{\imagelegend}[1]{\par\footnotesize\textbf{Legende:}~#1}
+
+\newcommand{\missing}{%
+    \textcolor{coloryellow}{MISSING}%
+    \PackageWarning{JHstyle}{You used the 'missing' macro at this line. Remove it before finalising document}%
+}
+\newcommand{\improve}{%
+    \textcolor{coloryellow}{IMPROVE}%
+    \PackageWarning{JHstyle}{You used the 'improve' macro at this line. Remove it before finalising document}%
+}
+
+%___________________________________________________________________
+% Renamings
+
+\renewcommand{\lstlistingname}{Quellcode}						%	Snippet umbenennen
+\renewcommand{\lstlistlistingname}{Codeverzeichnis}	
+
+\addto\captionsgerman{%
+  \renewcommand{\proofname}{Beweis}
+}
+
+% \renewcommand{\mkcitation}[1]{#1}
+
+%___________________________________________________________________
+% Commands
+
+\setdefaultlanguage{german}
+\setotherlanguage{english}
+
+\addbibresource{sources.bib}
+
+\graphicspath{{images/}}  
+
+\hypersetup{
+  hidelinks,
+  colorlinks=true,
+  linkcolor=.,
+  anchorcolor=.,
+  citecolor=colorgreen,
+  % filecolor=magenta,      
+  urlcolor=colorblue,
+  bookmarksnumbered=true,
+  breaklinks=true,
+  pdfauthor=Jan Hoegen,
+  pdftitle=Bayesian Search,
+}
+
+%___________________________________________________________________
+% Listings
+
+\lstset{%
+	frame			=	tb ,							%	horizontale Linie oben&unten
+	breaklines		=	true,							%	Zeilenumbruch
+	rulecolor		=	\color{black} ,					%	Rahmenfarbe ist schwarz
+	keywordstyle	=	\color{colorblue} ,
+	commentstyle	=	\color{colorblue} ,
+	stringstyle		=	\color{colorblue} ,
+	title			=	\lstname ,						%	Titel ist gleich dem Dateinamen
+	basicstyle		=	\footnotesize\ttfamily ,		%	Kleine Schrift und Monospace
+	numbers			=	left,							%	Zeilennumber links
+	inputencoding	=	utf8,  							% Input encoding
+  extendedchars	=	true,  							% Extended ASCII
+}
+
+%___________________________________________________________________
+% Ttile Page
+
+\title{Suchmethoden und Bayesian Search}
+\subtitle{Optimierungsverfahren für Ingenieure}
+\date{\today}
+\author{Jan Hoegen}
+\institute{
+  Hochschule Karlsruhe\\
+  University of Applied Sciences
+}
+% \setbeamertemplate{frame footer}{Bayesian Search. Jan Hoegen}
+
+%___________________________________________________________________
+% Document
+
+\begin{document}
+    \maketitle
+
+    \begin{frame}{Inhaltsverzeichnis}
+    \setbeamertemplate{section in toc}[sections numbered]
+    \tableofcontents[hideallsubsections]
+    % \tableofcontents
+    \end{frame}
+
+    \input{chapters/chapter_1.tex}
+
+    \input{chapters/chapter_2.tex}
+
+    \input{chapters/chapter_3.tex}
+
+    \input{chapters/chapter_4.tex}
+
+    % \input{chapters/section_5.tex}
+
+    \begin{frame}[label=conclusion, standout]
+        Fragen?
+    \end{frame}
+
+\appendix
+
+    \begin{frame}{Literatur}
+        \nocite{*}
+        \printbibliography[heading=none]
+    \end{frame}
+
+\end{document}
