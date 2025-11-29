@@ -21,8 +21,6 @@
 
 % \usepackage{enumitem}
 
-\usepackage{animate}
-
 % citations
 \usepackage[
   backend=biber,              
@@ -48,6 +46,7 @@
 \usepackage{listings}
 \usepackage{graphicx} 
 \usepackage{svg}
+\usepackage{animate}
 
 % improve visualization of data
 \usepackage{booktabs}
@@ -115,12 +114,12 @@
 \graphicspath{{images/}}  
 
 \hypersetup{
-  hidelinks,
+  % hidelinks,
   colorlinks=true,
   linkcolor=.,
   anchorcolor=.,
   citecolor=colorgreen,
-  % filecolor=magenta,      
+  filecolor=magenta,      
   urlcolor=colorblue,
   bookmarksnumbered=true,
   breaklinks=true,
@@ -134,10 +133,10 @@
 \lstset{%
 	frame			=	tb ,							%	horizontale Linie oben&unten
 	breaklines		=	true,							%	Zeilenumbruch
-	rulecolor		=	\color{black} ,					%	Rahmenfarbe ist schwarz
-	keywordstyle	=	\color{colorblue} ,
-	commentstyle	=	\color{colorblue} ,
-	stringstyle		=	\color{colorblue} ,
+	rulecolor		=	\color{black},					%	Rahmenfarbe ist schwarz
+	keywordstyle	=	\color{blue},
+	commentstyle	=	\color{ForestGreen},
+	stringstyle		=	\color{Mulberry},
 	title			=	\lstname ,						%	Titel ist gleich dem Dateinamen
 	basicstyle		=	\footnotesize\ttfamily ,		%	Kleine Schrift und Monospace
 	numbers			=	left,							%	Zeilennumber links
@@ -148,7 +147,7 @@
 %___________________________________________________________________
 % Ttile Page
 
-\title{Suchmethoden und Bayesian Search}
+\title{Suchalgorithmen für Machine Learning}
 \subtitle{Optimierungsverfahren für Ingenieure}
 \date{\today}
 \author{Jan Hoegen}
@@ -178,7 +177,7 @@
 
     \input{chapters/chapter_4.tex}
 
-    % \input{chapters/section_5.tex}
+    \input{chapters/chapter_5.tex}
 
     \begin{frame}[label=conclusion, standout]
         Fragen?
