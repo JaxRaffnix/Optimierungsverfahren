@@ -10,14 +10,14 @@
         \item Ergebnis jedoch nicht immer korrekt
     \end{itemize}
 
-    \begin{displaymath}
-        b(\text{Bild})\,\Rightarrow \text{Klasse}
-    \end{displaymath}
+    \begin{align*}
+        b(\text{Bild}) \;\rightarrow\; \text{Klasse}
+    \end{align*}
 
     Training der Blackbox:
     \begin{itemize}
         \item Anpassen der Parameter von $b$, wenn die falsche Klasse vorhergesagt wurde
-        \item Modellgröße: ca. 500\,000 Parameter
+        \item Größe: ca. 500\,000 Parameter
         \item Datensatz: 60\,000 Bilder
     \end{itemize}
 \end{frame}
@@ -26,52 +26,54 @@
 %___________________________________________________________________
 \begin{frame}{Genauigkeit der Blackbox}
 \begin{columns}[T, totalwidth=\textwidth]
-        
+    
     \begin{column}{0.5\textwidth}
+        \onslide<2->{%
         \begin{figure}
             \centering
             \includegraphics[width=\imagewidth, height=0.95\imageheight, keepaspectratio]{zielfunktion}
             \caption{Darstellung der Zielfunktion.}
         \end{figure}
+        }
     \end{column}
-    \begin{column}{0.45\textwidth}
-        \textbf{Zielfunktion $f\,(\text{Epochen},\,\text{Lernrate})$:}
 
-        \vspace{0.7em}
-        Eingaben:
-        \begin{itemize}
-            \item Epochen: Wie oft der gesamte Datensatz durchlaufen wird
-            \item Lernrate: Stärke der Parameteranpassung
-        \end{itemize}
+    \begin{column}{0.45\textwidth}
+        % \textbf{Zielfunktion $f\,(\text{Epochen},\,\text{Lernrate})$:}
+        \textbf{\alt<1>{Zielfunktion $f$}{$f(\text{Epochen},\,\text{Lernrate})$} $\rightarrow$ Accuracy:}
 
         \vspace{0.7em}
         Prozess: Trainiert die Blackbox \(b\) über alle Bilder
-        % \begin{itemize}
-        %     \item Trainiert die Blackbox \(b\) über alle Bilder
-        % \end{itemize}
 
         \vspace{0.7em}
-        Ausgabe: Genauigkeit von $b$ nach Training
-        % \begin{itemize}
-        %     \item Genauigkeit von $b$ nach Training
-        % \end{itemize}
+        Ausgabe: Genauigkeit von $b$ nach dem Training
+
+        \vspace{0.7em}
+        \onslide<2->{%
+        Eingaben:
+        \begin{itemize}
+            \item Epochen: Wie häufig wird der gesamte Datensatz durchlaufen
+            \item Lernrate: Stärke der Parameteranpassung
+        \end{itemize}
+        }
+        
     \end{column}
 
 \end{columns}
 \end{frame}
 
 
+
 %___________________________________________________________________
 \begin{frame}{Zielsetzung}
     Ziel: 
     \begin{itemize}
-        \item Höchste Genauigkeit für den Datensatz finden.
+        \item Höchste Genauigkeit für den Datensatz
     \end{itemize}
 
     \vspace*{1em}
     Problem:
     \begin{itemize}
-        \item Einzelner Aufruf von $f$ dauert ca. 3 Stunden
+        \item Berechnung von $f$ mit einer einzlnen Kombination von Eingabewerten kann mehrere Stunden dauern
     \end{itemize}
 
     \vspace*{1em}
@@ -80,4 +82,6 @@
     \begin{itemize}
         \item Effiziente Suchstrategien nutzen
     \end{itemize}
+
+    % TODO: das ziel im vortrag ist eine hohe genauigkeit in möglichst kurzer zeit. vollständige abschließende zielsetzung steht nicht auf der folie.
 \end{frame}
