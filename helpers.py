@@ -120,26 +120,14 @@ def savefig(name, ext="pdf", tight=True, transparent=True, dpi=300):
 
     # Ensure output directory exists
     os.makedirs(IMG_DIR, exist_ok=True)
-
-    # Build full file path
-    path = os.path.join(IMG_DIR, f"{name}.{ext}")
-
-    # Apply layout adjustments
+    
     if tight:
         plt.tight_layout()
-
-    # Save figure
+    path = os.path.join(IMG_DIR, f"{name}.{ext}")
     plt.savefig(path, dpi=dpi, bbox_inches="tight", transparent=transparent)
 
-    # Close to free memory
     plt.close()
-
-    # Print confirmation with size info
-    try:
-        size_kb = os.path.getsize(path) / 1024
-        print(f"💾 Saved: {path} ({size_kb:.1f} KB)")
-    except OSError:
-        print(f"💾 Saved: {path}")
+    print(f"💾 Saved: {path}")
 
 
 # -------------------------------------------------------------------------

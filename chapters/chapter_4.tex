@@ -1,29 +1,10 @@
-\section{Lösung mit Bayesian Search}
+\section{Fazit}
 
-%___________________________________________________________________
-\begin{frame}{Animation zu Bayesian Search}
-\begin{columns}[T, totalwidth=\textwidth]
-
-    % -------------------------------------------------------------
-    % Linke Spalte: Animation
-    \begin{column}{0.55\textwidth}
+\begin{frame}{Vergleich der Methoden}
+    \begin{figure}
         \centering
-        \animategraphics[loop, autoplay, controls, width=\linewidth, height=\imageheight, keepaspectratio]{0.5}{videos/frame_}{000}{006}
-    \end{column}
-
-    % -------------------------------------------------------------
-    % Rechte Spalte: Caption und Beschreibung
-    \begin{column}{0.45\textwidth}
-    \captionof{figure}{Bayes'sche Scoreoptimierung für einen Random-Forest-Klassifizierer}
-    \imagesource{\cite{bayes_gif}}
-    \imagelegend{
-        \scriptsize
-        \textit{x-Achse:} Parameter des Random-Forest-Klassifizierers. \textit{Schwarz:} Zielfunktion. \textit{Lila:} Modellierte Funktion mit Unsicherheitsbereich ±1 Standardabweichung. \\ 
-        \textit{Expected Improvement:} Erwarteter Zugewinn gegenüber dem aktuellen Bestwert. \\ 
-        \textit{Upper Confidence Bound:} Suche vielversprechende, aber unerkundete Bereiche. \\
-        \textit{Probability of Improvement:} Wahrscheinlichkeit, dass ein neuer Punkt besser ist als der bisherige Bestwert.
-    }
-\end{column}
-
-\end{columns}
+        \includegraphics[width=\imagewidth, height=\imageheight, keepaspectratio]{comparison}
+        \caption{Vergleich der Suchalgorithmen}
+        \imagelegend{grau: Top 10\% der Ergebnisse; orange gestrichelt: aktueller Bestwert}
+    \end{figure}
 \end{frame}
