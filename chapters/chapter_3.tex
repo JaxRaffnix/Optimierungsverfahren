@@ -1,1 +1,51 @@
-\section{Lösung mit Random Search}
+\section{Lösung mit Bayesian Search}
+
+
+\begin{frame}{Erklärung Bayesian Search}
+    % TODO: finish this
+    Wir bauen ein Modell $m(epochen, lernnrate)$. Wir hoffen, dass es sich annähernd wie unsere zielfunktion $f(epochen, lernrate)$ verhält. 
+
+    Wir wählen einen Suchpunkt aus, der in unserem Modell $m$ den den maximalert ausgibt und berechnen $f$. Da die sich m und f ähnlich verhalten, sollte das ergeebnis auch der maximalwert oder nahe dran für f sein.
+
+    Mit dem Ergebnis können wir unser Modell $m$ anpassen, um die zielfunktion besser zu modellieren.
+
+    Dieser Vorgang wird wiederholt, bis wir keine Versuche mehr übrig haben. Als Ergebnis sollte unser Modell recht gut die Maximalwerte von f vorhergesagt haben.
+
+    Zusätzlich wird ab und zu statt den aktuell vorhergesagten Bestwert, ein ganz anderer Punkt ausgetestet. Damit testen wir, ob in bisher nicht gesuchten Bereichen unser Modell stark abweicht und dort tatsächlich bessere Werte zu finden sind.
+\end{frame}
+
+%___________________________________________________________________
+\begin{frame}{Animation zu Bayesian Search}
+\begin{columns}[T, totalwidth=\textwidth]
+
+    % Linke Spalte: Animation
+    \begin{column}{0.55\textwidth}
+        \centering
+        \animategraphics[loop, autoplay, controls, width=\linewidth, height=\imageheight, keepaspectratio]{0.5}{videos/frame_}{000}{006}
+    \end{column}
+
+    % Rechte Spalte: Caption und Beschreibung
+    \begin{column}{0.45\textwidth}
+    \captionof{figure}{Bayes'sche Scoreoptimierung für einen Random-Forest-Klassifizierer}
+    \imagesource{\cite{bayes_gif}}
+    \imagelegend{
+        % TODO: vereinfache und kürze text
+        \scriptsize
+        \textit{x-Achse:} Parameter des Random-Forest-Klassifizierers. \textit{Schwarz:} Zielfunktion. \textit{Lila:} Modellierte Funktion mit Unsicherheitsbereich ±1 Standardabweichung. \\ 
+        \textit{Expected Improvement:} Erwarteter Zugewinn gegenüber dem aktuellen Bestwert. \\ 
+        \textit{Upper Confidence Bound:} Suche vielversprechende, aber unerkundete Bereiche. \\
+        \textit{Probability of Improvement:} Wahrscheinlichkeit, dass ein neuer Punkt besser ist als der bisherige Bestwert.
+    }
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%___________________________________________________________________
+\begin{frame}{Suchalgorithmus Bayesian Search}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\imagewidth, height=\imageheight, keepaspectratio]{contour_bayesian}
+        \caption{Suchpunkte für Bayesian Search}
+    \end{figure}
+\end{frame}
