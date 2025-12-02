@@ -5,6 +5,7 @@ seaborn
 tensorflow
 scikit-learn
 optuna
+optuna-dashboard
 ipykernel
 torch
 torchvision
