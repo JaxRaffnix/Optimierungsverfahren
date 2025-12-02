@@ -6,7 +6,7 @@
     \begin{itemize}
         \item Näherung der Zielfunktion $f\,(Epochen,\,Lernrate)$
         \item schnell auswertbar
-        \item Wird nach jeder neuen Auswertung von $f$ weiter verbessert
+        \item \alert{Wird nach jeder neuen Auswertung von $f$ weiter verbessert}
     \end{itemize}
 
     \vspace*{1em}
@@ -25,7 +25,7 @@
 \end{frame}
 
 %___________________________________________________________________
-\begin{frame}{Animation zu Bayesian Search}
+\begin{frame}{Animation zu Bayesian Search in 1D}
 \begin{columns}[T, totalwidth=\textwidth]
 
     % Linke Spalte: Animation
@@ -37,17 +37,14 @@
     % Rechte Spalte: Caption und Beschreibung
     \begin{column}{0.45\textwidth}
     \captionof{figure}{Bayes'sche Scoreoptimierung für einen Random-Forest-Klassifizierer}
-    \imagesource{\cite{bayes_gif}}
-    \imagelegend{
-        \scriptsize \\
-        \begin{itemize}[leftmargin=0pt]
-            \item \textit{x-Achse:} Parameter des Random-Forest-Klassifizierers. 
-            \item \textit{Schwarz:} Zielfunktion. 
-            \item \textit{Lila:} Modell mit Unsicherheitsbereich. 
-            \item \textit{Expected Improvement:} Erwarteter Zugewinn gegenüber dem aktuellen Bestwert.  
-            \item \textit{Upper Confidence Bound:} Finde vielversprechende, aber unerkundete Bereiche. 
-            \item \textit{Probability of Improvement:} Wahrscheinlichkeit, einen besseren Punkt zu finden.
-        \end{itemize}   
+    \imagesource{\cite{bayes_gif}} \\[0.5em]
+    \imagelegend{\scriptsize\\[0.5em]
+        \textit{x-Achse:} Parameter. \\[0.5em]
+        \textit{Schwarz:} Zielfunktion. \\[0.5em]
+        \textit{Lila:} Modell mit Unsicherheitsbereich. \\[0.5em]
+        \textit{Expected Improvement:} Erwarteter Zugewinn gegenüber dem aktuellen Bestwert. \\[0.5em]
+        \textit{Upper Confidence Bound:} Finde vielversprechende, aber unerkundete Bereiche. \\[0.5em]
+        \textit{Probability of Improvement:} Wahrscheinlichkeit, einen besseren Punkt zu finden.
     }
 \end{column}
 
