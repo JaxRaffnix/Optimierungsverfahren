@@ -1,17 +1,27 @@
 \section{Lösung mit Bayesian Search}
 
 
-\begin{frame}{Erklärung Bayesian Search}
-    % TODO: finish this
-    Wir bauen ein Modell $m(epochen, lernnrate)$. Wir hoffen, dass es sich annähernd wie unsere zielfunktion $f(epochen, lernrate)$ verhält. 
+\begin{frame}{Die Idee von Bayesian Search}
+    \textbf{Modell:} $m\,(Epochen,\,Lernrate\,\rightarrow\,Accuracy)$
+    \begin{itemize}
+        \item Näherung der Zielfunktion $f\,(Epochen,\,Lernrate)$
+        \item schnell auswertbar
+        \item Wird nach jeder neuen Auswertung von $f$ weiter verbessert
+    \end{itemize}
 
-    Wir wählen einen Suchpunkt aus, der in unserem Modell $m$ den den maximalert ausgibt und berechnen $f$. Da die sich m und f ähnlich verhalten, sollte das ergeebnis auch der maximalwert oder nahe dran für f sein.
+    \vspace*{1em}
+    \textbf{Exploitation:} Vorhandenes Wissen nutzen
+    \begin{itemize}
+    \item Wähle Punkte, an denen $m$ eine hohe Accuracy vorhersagt
+    \item $f$ an dieser Stelle berechnen $\rightarrow$ vermutlich neuer Bestwert
+\end{itemize}
 
-    Mit dem Ergebnis können wir unser Modell $m$ anpassen, um die zielfunktion besser zu modellieren.
-
-    Dieser Vorgang wird wiederholt, bis wir keine Versuche mehr übrig haben. Als Ergebnis sollte unser Modell recht gut die Maximalwerte von f vorhergesagt haben.
-
-    Zusätzlich wird ab und zu statt den aktuell vorhergesagten Bestwert, ein ganz anderer Punkt ausgetestet. Damit testen wir, ob in bisher nicht gesuchten Bereichen unser Modell stark abweicht und dort tatsächlich bessere Werte zu finden sind.
+    \vspace*{1em}
+    \textbf{Exploration:} Unbekannte Bereiche ausprobieren
+    \begin{itemize}
+        \item Wähle Punkte, an denen $m$ und $f$ stark voneinander abweichen könnten
+        \item Verbessert das Modell und entdeckt neue gute Bereiche
+    \end{itemize}
 \end{frame}
 
 %___________________________________________________________________
@@ -29,12 +39,15 @@
     \captionof{figure}{Bayes'sche Scoreoptimierung für einen Random-Forest-Klassifizierer}
     \imagesource{\cite{bayes_gif}}
     \imagelegend{
-        % TODO: vereinfache und kürze text
-        \scriptsize
-        \textit{x-Achse:} Parameter des Random-Forest-Klassifizierers. \textit{Schwarz:} Zielfunktion. \textit{Lila:} Modellierte Funktion mit Unsicherheitsbereich ±1 Standardabweichung. \\ 
-        \textit{Expected Improvement:} Erwarteter Zugewinn gegenüber dem aktuellen Bestwert. \\ 
-        \textit{Upper Confidence Bound:} Suche vielversprechende, aber unerkundete Bereiche. \\
-        \textit{Probability of Improvement:} Wahrscheinlichkeit, dass ein neuer Punkt besser ist als der bisherige Bestwert.
+        \scriptsize \\
+        \begin{itemize}[leftmargin=0pt]
+            \item \textit{x-Achse:} Parameter des Random-Forest-Klassifizierers. 
+            \item \textit{Schwarz:} Zielfunktion. 
+            \item \textit{Lila:} Modell mit Unsicherheitsbereich. 
+            \item \textit{Expected Improvement:} Erwarteter Zugewinn gegenüber dem aktuellen Bestwert.  
+            \item \textit{Upper Confidence Bound:} Finde vielversprechende, aber unerkundete Bereiche. 
+            \item \textit{Probability of Improvement:} Wahrscheinlichkeit, einen besseren Punkt zu finden.
+        \end{itemize}   
     }
 \end{column}
 
@@ -42,10 +55,10 @@
 \end{frame}
 
 %___________________________________________________________________
-\begin{frame}{Suchalgorithmus Bayesian Search}
+\begin{frame}{Eregbnisse mit Bayesian Search}
     \begin{figure}
         \centering
         \includegraphics[width=\imagewidth, height=\imageheight, keepaspectratio]{contour_bayesian}
-        \caption{Suchpunkte für Bayesian Search}
+        \caption{Accuracy Ergebnisse für Bayesian Search}
     \end{figure}
 \end{frame}

@@ -19,7 +19,7 @@
 \usepackage{microtype}              % better typography
 \usepackage{polyglossia}            % languages
 
-% \usepackage{enumitem}
+\usepackage{enumitem}
 
 % citations
 \usepackage[
@@ -182,10 +182,9 @@
     \end{frame}
 
 \appendix
-
-    \begin{frame}{Literatur}
-        \nocite{*}
-        \printbibliography[heading=none]
-    \end{frame}
+  \begin{frame}{Literatur}
+      \nocite{*}
+      \printbibliography[heading=subbibliography]
+  \end{frame}
 
 \end{document}

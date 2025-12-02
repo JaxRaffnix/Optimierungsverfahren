@@ -16,15 +16,15 @@
 
     Training der Blackbox:
     \begin{itemize}
-        \item Anpassen der Parameter von $b$, wenn die falsche Klasse vorhergesagt wurde
-        \item Größe: ca. 500\,000 Parameter
+        \item Parameter von $b$ werden verbessert, wenn das Ergebnis falsch ist
+        \item Größe: 500\,000 Parameter
         \item Datensatz: 60\,000 Bilder
     \end{itemize}
 \end{frame}
 
 
 %___________________________________________________________________
-\begin{frame}{Genauigkeit der Blackbox}
+\begin{frame}{Genauigkeit der Blackbox als Optimierungsziel}
 \begin{columns}[T, totalwidth=\textwidth]
     
     \begin{column}{0.5\textwidth}
@@ -38,8 +38,7 @@
     \end{column}
 
     \begin{column}{0.45\textwidth}
-        % \textbf{Zielfunktion $f\,(\text{Epochen},\,\text{Lernrate})$:}
-        \textbf{\alt<1>{Zielfunktion $f$}{$f(\text{Epochen},\,\text{Lernrate})$} $\rightarrow$ Accuracy:}
+        \hspace*{\fill}\textbf{\alt<1>{Zielfunktion $f$}{$f(\text{Epochen},\,\text{Lernrate})$} $\rightarrow$ Accuracy:}
 
         \vspace{0.7em}
         Prozess: Trainiert die Blackbox \(b\) über alle Bilder
@@ -64,24 +63,23 @@
 
 
 %___________________________________________________________________
-\begin{frame}{Zielsetzung}
+\begin{frame}{Zielsetzung der Optimierung}
     Ziel: 
     \begin{itemize}
-        \item Höchste Genauigkeit für den Datensatz
+        \item Werte für Epochen und Lernrate finden, um beste Accuracy zu erhalten
     \end{itemize}
 
     \vspace*{1em}
     Problem:
     \begin{itemize}
-        \item Berechnung von $f$ mit einer einzlnen Kombination von Eingabewerten kann mehrere Stunden dauern
+        \item Jede Berechnung von $f$ dauert sehr lange (Minuten bis Stunden)
     \end{itemize}
 
     \vspace*{1em}
     % \pause
-    Lösung:
+    Konsequenz:
     \begin{itemize}
+        \item Mit lediglich 25 Berechnungen von $f$ das beste Ergebnis finden
         \item Effiziente Suchstrategien nutzen
     \end{itemize}
-
-    % TODO: das ziel im vortrag ist eine hohe genauigkeit in möglichst kurzer zeit. vollständige abschließende zielsetzung steht nicht auf der folie.
 \end{frame}
